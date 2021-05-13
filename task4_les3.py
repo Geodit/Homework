@@ -15,4 +15,5 @@ def exponentation(number: float, exponent: int):
 number = float(input('Enter a positive float number: '))
 exponent = int(input('Enter a negative exponent: '))
 exponentation(number, exponent*(-1))
+# комментарий
 
