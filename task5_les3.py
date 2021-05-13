@@ -4,14 +4,18 @@
 # символ, выполнение программы завершается. Если специальный символ введен после нескольких чисел, то вначале
 # нужно добавить сумму этих чисел к полученной ранее сумме и после этого завершить программу.пывпы
 
-sum = 0
-while True:
-    numbers = input('Enter numbers separated by space and then press "Enter" to start calculations: ')
-    numbers = numbers.split(' ')
+def addition(numbers:str):
+    sum = 0
     for number in numbers:
         if number.isdigit():
             sum += int(number)
         else:
-            break
+            return(sum)
+    return(sum)
+
+sum = 0
+while True:
+    numbers = input('Enter numbers separated by space and then press "Enter" to start calculations: ').split()
+    sum += addition(numbers)
     print(sum)
 
