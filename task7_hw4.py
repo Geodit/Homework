@@ -5,27 +5,21 @@
 
 
 # 7a)
-# def my_func(n):
-#     for i in range(n):
-#         yield i
-#
-# for i in my_func(5):
-#     print(i)
+def my_func(n):
+    for i in range(n):
+        yield i
+
+for i in my_func(5):
+    print(i)
 
 # 7b)
 
 def my_func(n):
-    a = n
-    if n == 1:
-        return n
-    else:
-        a = n - 1
-        yield a
-        return n*my_func(n-1)
-
+    f = 1
+    for i in range(n):
+        f *= i+1
+        yield i+1
 
 for i in my_func(5):
     print(i)
-# print(my_func(5))
-
-# не понял, как сделать втоую часть
+# пытался делать с рекурсией, теперь без нее
