@@ -1,4 +1,5 @@
-# . Создать (не программно) текстовый файл, в котором каждая строка должна содержать данные о фирме: название,
+# . Создать (не программно) текстовый файл, в котором каждая строка должна содержать данные о фирме:
+# название,
 # форма собственности, выручка, издержки.
 # Пример строки файла: firm_1 ООО 10000 5000.
 # Необходимо построчно прочитать файл, вычислить прибыль каждой компании, а также среднюю прибыль.
@@ -12,4 +13,22 @@
 #
 # Подсказка: использовать менеджеры контекста.
 
-не хватило времени на эту задачу, целый день делал все остальные ((
+# не хватило времени на эту задачу, целый день делал все остальные ((
+import json
+my_dict = {}
+with open("file.txt","r") as f_obj:
+    content = f_obj.read()
+    number_of_lines = content.count('\n')
+    f_obj.seek(0)
+    avrg_prof = 0
+    for i in range(number_of_lines):
+        line = f_obj.readline()
+        prof = int(line.split(' ')[2]) - int(line.split(' ')[3])
+        if prof >= 0:
+            avrg_prof += round(prof / number_of_lines, 2)
+        my_dict[line.split(' ')[0]] = prof
+    print(avrg_prof)
+    print(my_dict)
+my_dict['average_profit'] = avrg_prof
+with open("my_file.json", "w") as write_f:
+    json.dump(my_dict, write_f)
